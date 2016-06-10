@@ -8,6 +8,7 @@ class HelpDeskClientModule extends AApiModule
 	
 	public function init() 
 	{
+		//test v
 		$this->oApiHelpDeskManager = $this->GetManager('main');
 
 		$this->AddEntry('helpdesk', 'EntryHelpDesk');
