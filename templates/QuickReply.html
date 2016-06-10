@@ -7,7 +7,7 @@
 	css: { 'internal': internalNote(), 'hidden': isQuickReplyHidden() }">
 
 	<div class="status">
-		<div class="text" data-bind="i18n: {'key': 'CORE/INFO_SENDING'}"></div>
+		<div class="text" data-bind="i18n: {'key': 'CORECLIENT/INFO_SENDING'}"></div>
 	</div>
 	<div class="row" data-bind="css: {'focused': replyTextFocus(), 'filled': replyText().length > 0}">
 		<label for="reply_text" class="placeholder" data-bind="i18n: {'key': '%MODULENAME%/LABEL_YOUR_ANSWER'}"></label>
@@ -24,7 +24,7 @@
 		<tbody>
 			<tr>
 				<td class="label">
-					<span data-bind="i18n: {'key': 'CORE/LABEL_CC'}"></span>
+					<span data-bind="i18n: {'key': 'CORECLIENT/LABEL_CC'}"></span>
 				</td>
 				<td>
 					<div class="input inputosaurus">
@@ -36,7 +36,7 @@
 					</div>
 				</td>
 				<td class="label">
-					<span data-bind="i18n: {'key': 'CORE/LABEL_BCC'}"></span>
+					<span data-bind="i18n: {'key': 'CORECLIENT/LABEL_BCC'}"></span>
 				</td>
 				<td>
 					<div class="input inputosaurus">
@@ -71,7 +71,7 @@
 			<span class="icon"></span>
 			<span class="text" data-bind="i18n: {'key': '%MODULENAME%/ACTION_ADD_CCBCC'}"></span>
 		</span>
-		<span class="button" data-bind="command: postCommand, i18n: {'key': 'CORE/ACTION_SEND'}"></span>
-		<span class="text hint" data-bind="i18n: {'key': 'CORE/LABEL_SEND_HOTKEY'}"></span>
+		<span class="button" data-bind="command: postCommand, i18n: {'key': 'CORECLIENT/ACTION_SEND'}"></span>
+		<span class="text hint" data-bind="i18n: {'key': 'CORECLIENT/LABEL_SEND_HOTKEY'}"></span>
 	</div>
 </div>

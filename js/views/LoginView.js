@@ -66,16 +66,16 @@ function CLoginView()
 	this.helpdeskQuestionFocus = ko.observable('');
 
 	this.signInButtonText = ko.computed( function () {
-		return this.registeringProcess() ? TextUtils.i18n('CORE/ACTION_SIGN_IN_IN_PROGRESS') : TextUtils.i18n('CORE/ACTION_SIGN_IN');
+		return this.registeringProcess() ? TextUtils.i18n('CORECLIENT/ACTION_SIGN_IN_IN_PROGRESS') : TextUtils.i18n('CORECLIENT/ACTION_SIGN_IN');
 	}, this);
 
 	this.regButtonText = ko.computed( function () {
-		return this.registeringProcess() ? TextUtils.i18n('CORE/ACTION_REGISTER_IN_PROGRESS') : TextUtils.i18n('CORE/ACTION_REGISTER');
+		return this.registeringProcess() ? TextUtils.i18n('CORECLIENT/ACTION_REGISTER_IN_PROGRESS') : TextUtils.i18n('CORECLIENT/ACTION_REGISTER');
 	}, this);
 
 	this.sendingPasswordProcess = ko.observable(false);
 	this.forgotButtonText = ko.computed(function () {
-		return this.sendingPasswordProcess() ? TextUtils.i18n('CORE/ACTION_RESET_PASSWORD_IN_PROGRESS') : TextUtils.i18n('CORE/ACTION_RESET_PASSWORD');
+		return this.sendingPasswordProcess() ? TextUtils.i18n('CORECLIENT/ACTION_RESET_PASSWORD_IN_PROGRESS') : TextUtils.i18n('CORECLIENT/ACTION_RESET_PASSWORD');
 	}, this);
 	this.forgotEmailFocus = ko.observable(false);
 	this.forgotEmail = ko.observable('');
@@ -83,8 +83,8 @@ function CLoginView()
 	this.changingPasswordProcess = ko.observable(false);
 	this.changepassButtonText = ko.computed(function () {
 		return this.changingPasswordProcess() ?
-			TextUtils.i18n('CORE/ACTION_CHANGE_PASSWORD_IN_PROGRESS') :
-			TextUtils.i18n('CORE/ACTION_CHANGE_PASSWORD');
+			TextUtils.i18n('CORECLIENT/ACTION_CHANGE_PASSWORD_IN_PROGRESS') :
+			TextUtils.i18n('CORECLIENT/ACTION_CHANGE_PASSWORD');
 	}, this);
 	this.changepassNewpassFocus = ko.observable(false);
 	this.changepassNewpass = ko.observable('');
@@ -278,7 +278,7 @@ CLoginView.prototype.actionRegister = function ()
 {
 	if (this.regPassword() !== this.regConfirmPassword())
 	{
-		Screens.showError(TextUtils.i18n('CORE/ERROR_PASSWORDS_DO_NOT_MATCH'));
+		Screens.showError(TextUtils.i18n('CORECLIENT/ERROR_PASSWORDS_DO_NOT_MATCH'));
 		this.regPasswordFocus(true);
 	}
 	else
@@ -433,7 +433,7 @@ CLoginView.prototype.actionChangepass = function ()
 
 		if (this.changepassNewpass() !== this.changepassConfirmpass())
 		{
-			Screens.showError(TextUtils.i18n('CORE/ERROR_PASSWORDS_DO_NOT_MATCH'));
+			Screens.showError(TextUtils.i18n('CORECLIENT/ERROR_PASSWORDS_DO_NOT_MATCH'));
 			this.changepassNewpassFocus(true);
 			return;
 		}
