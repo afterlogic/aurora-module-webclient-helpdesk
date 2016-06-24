@@ -23,7 +23,7 @@ class HelpDeskClientModule extends AApiModule
 	{
 		$oLogginedAccount = $this->oHelpDeskDecorator->GetCurrentUser();
 
-		$oApiIntegrator = \CApi::GetCoreManager('integrator');
+		$oApiIntegrator = \CApi::GetSystemManager('integrator');
 		
 //		$mHelpdeskLogin = $this->oHttp->GetQuery('helpdesk');
 		$sTenantName = \CApi::getTenantName();
