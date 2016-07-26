@@ -10,6 +10,7 @@ var
 	Utils = require('modules/CoreClient/js/utils/Common.js'),
 	
 	Api = require('modules/CoreClient/js/Api.js'),
+	App = require('modules/CoreClient/js/App.js'),
 	Screens = require('modules/CoreClient/js/Screens.js'),
 	Storage = require('modules/CoreClient/js/Storage.js'),
 	UserSettings = require('modules/CoreClient/js/Settings.js'),
@@ -116,17 +117,13 @@ function CLoginView()
 
 	this.socialNetworkLogin();
 
-//	if (AfterLogicApi.runPluginHook)
-//	{
-//		AfterLogicApi.runPluginHook('view-model-defined', [this.__name, this]);
-//	}
+	App.broadcastEvent('%ModuleName%::ConstructView::after', {'Name': this.ViewConstructorName, 'View': this});
 }
 
 _.extendOwn(CLoginView.prototype, CAbstractScreenView.prototype);
 
 CLoginView.prototype.ViewTemplate = '%ModuleName%_LoginView';
-
-CLoginView.prototype.__name = 'CLoginView';
+CLoginView.prototype.ViewConstructorName = 'CLoginView';
 
 CLoginView.prototype.onShow = function ()
 {

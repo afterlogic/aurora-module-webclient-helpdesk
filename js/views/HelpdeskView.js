@@ -361,11 +361,14 @@ function CHelpdeskView()
 	this.focusedField = ko.observable();
 
 	this.requestFromLogin();
+	
+	App.broadcastEvent('%ModuleName%::ConstructView::after', {'Name': this.ViewConstructorName, 'View': this});
 }
 
 _.extendOwn(CHelpdeskView.prototype, CAbstractScreenView.prototype);
 
 CHelpdeskView.prototype.ViewTemplate = '%ModuleName%_HelpdeskView';
+CHelpdeskView.prototype.ViewConstructorName = 'CHelpdeskView';
 
 /**
  * @param {Object} koAddrDom
