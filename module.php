@@ -21,7 +21,7 @@ class HelpDeskClientModule extends AApiModule
 	
 	public function EntryHelpDesk()
 	{
-		$oLogginedAccount = $this->oHelpDeskDecorator->GetCurrentUser();
+		$oAuthenticatedAccount = $this->oHelpDeskDecorator->GetCurrentUser();
 
 		$oApiIntegrator = \CApi::GetSystemManager('integrator');
 		
@@ -77,8 +77,8 @@ class HelpDeskClientModule extends AApiModule
 
 	
 		//TODO oApiCapabilityManager
-//		if ($oLogginedAccount && $this->oApiCapabilityManager->isHelpdeskSupported($oLogginedAccount) && $oLogginedAccount->IdTenant === $mHelpdeskIdTenant)
-		if ($oLogginedAccount && $oLogginedAccount->IdTenant === $mHelpdeskIdTenant)
+//		if ($oAuthenticatedAccount && $this->oApiCapabilityManager->isHelpdeskSupported($oAuthenticatedAccount) && $oAuthenticatedAccount->IdTenant === $mHelpdeskIdTenant)
+		if ($oAuthenticatedAccount && $oAuthenticatedAccount->IdTenant === $mHelpdeskIdTenant)
 		{
 			if (!$bDoId)
 			{
