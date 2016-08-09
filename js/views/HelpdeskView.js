@@ -100,7 +100,7 @@ function CHelpdeskView()
 		this.selectedItem();
 		if (this.ownerDom())
 		{
-			ModulesManager.run('ContactsClient', 'applyContactsCards', [[this.ownerDom()]]);
+			ModulesManager.run('ContactsWebclient', 'applyContactsCards', [[this.ownerDom()]]);
 		}
 	}, this).extend({ rateLimit: 50 });
 	this.selectedItem.subscribe(function (oItem) {
@@ -383,8 +383,8 @@ CHelpdeskView.prototype.initInputosaurus = function (koAddrDom, koAddr, koLockAd
 		$(koAddrDom()).inputosaurus({
 			width: 'auto',
 			parseOnBlur: true,
-			autoCompleteSource: ModulesManager.run('ContactsClient', 'getSuggestionsAutocompleteComposeCallback') || function () {},
-			autoCompleteDeleteItem: ModulesManager.run('ContactsClient', 'getSuggestionsAutocompleteDeleteHandler') || function () {},
+			autoCompleteSource: ModulesManager.run('ContactsWebclient', 'getSuggestionsAutocompleteComposeCallback') || function () {},
+			autoCompleteDeleteItem: ModulesManager.run('ContactsWebclient', 'getSuggestionsAutocompleteDeleteHandler') || function () {},
 			autoCompleteAppendTo: $(koAddrDom()).closest('td'),
 			change: _.bind(function (ev) {
 				koLockAddr(true);

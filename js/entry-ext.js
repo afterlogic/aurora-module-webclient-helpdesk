@@ -5,7 +5,7 @@ var $ = require('jquery');
 $('body').ready(function () {
 	var
 		oAvaliableModules = {
-			'Helpdesk': require('modules/HelpDeskClient/js/manager-ext.js')
+			'HelpDeskWebclient': require('modules/HelpDeskWebclient/js/manager-ext.js')
 		},
 		ModulesManager = require('modules/CoreClient/js/ModulesManager.js'),
 		App = require('modules/CoreClient/js/App.js')
