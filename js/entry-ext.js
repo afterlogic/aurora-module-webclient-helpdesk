@@ -7,8 +7,8 @@ $('body').ready(function () {
 		oAvaliableModules = {
 			'HelpDeskWebclient': require('modules/HelpDeskWebclient/js/manager-ext.js')
 		},
-		ModulesManager = require('modules/CoreClient/js/ModulesManager.js'),
-		App = require('modules/CoreClient/js/App.js')
+		ModulesManager = require('%PathToCoreWebclientModule%/js/ModulesManager.js'),
+		App = require('%PathToCoreWebclientModule%/js/App.js')
 	;
 	
 	App.setPublic();

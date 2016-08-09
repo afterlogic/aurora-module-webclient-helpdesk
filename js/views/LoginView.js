@@ -5,17 +5,17 @@ var
 	$ = require('jquery'),
 	ko = require('knockout'),
 	
-	TextUtils = require('modules/CoreClient/js/utils/Text.js'),
-	UrlUtils = require('modules/CoreClient/js/utils/Url.js'),
-	Utils = require('modules/CoreClient/js/utils/Common.js'),
+	TextUtils = require('%PathToCoreWebclientModule%/js/utils/Text.js'),
+	UrlUtils = require('%PathToCoreWebclientModule%/js/utils/Url.js'),
+	Utils = require('%PathToCoreWebclientModule%/js/utils/Common.js'),
 	
-	Api = require('modules/CoreClient/js/Api.js'),
-	App = require('modules/CoreClient/js/App.js'),
-	Screens = require('modules/CoreClient/js/Screens.js'),
-	Storage = require('modules/CoreClient/js/Storage.js'),
-	UserSettings = require('modules/CoreClient/js/Settings.js'),
+	Api = require('%PathToCoreWebclientModule%/js/Api.js'),
+	App = require('%PathToCoreWebclientModule%/js/App.js'),
+	Screens = require('%PathToCoreWebclientModule%/js/Screens.js'),
+	Storage = require('%PathToCoreWebclientModule%/js/Storage.js'),
+	UserSettings = require('%PathToCoreWebclientModule%/js/Settings.js'),
 	
-	CAbstractScreenView = require('modules/CoreClient/js/views/CAbstractScreenView.js'),
+	CAbstractScreenView = require('%PathToCoreWebclientModule%/js/views/CAbstractScreenView.js'),
 	
 	Ajax = require('modules/%ModuleName%/js/Ajax.js'),
 	Settings = require('modules/%ModuleName%/js/Settings.js'),
