@@ -1324,7 +1324,7 @@ CHelpdeskView.prototype.onFileUploadSelect = function (sFileUID, oFileData)
 	var
 		oAttach,
 		sWarningCountLimit = TextUtils.i18n('%MODULENAME%/ERROR_UPLOAD_FILES_COUNT'),
-		sButtonCountLimit = TextUtils.i18n('CORECLIENT/ACTION_CLOSE'),
+		sButtonCountLimit = TextUtils.i18n('COREWEBCLIENT/ACTION_CLOSE'),
 		iAttachCount = this.uploadedFiles().length
 	;
 

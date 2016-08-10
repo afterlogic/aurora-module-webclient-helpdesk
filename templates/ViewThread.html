@@ -52,9 +52,9 @@
 				<span class="icon"></span>
 				<span class="text" data-bind="i18n: {'key': '%MODULENAME%/ACTION_WAITING_CLIENT'}"></span>
 			</span>
-			<span class="item delete" data-bind="command: deleteCommand, visible: !bNewTab, customTooltip: 'CORECLIENT/ACTION_DELETE'">
+			<span class="item delete" data-bind="command: deleteCommand, visible: !bNewTab, customTooltip: 'COREWEBCLIENT/ACTION_DELETE'">
 				<span class="icon"></span>
-				<span class="text" data-bind="i18n: {'key': 'CORECLIENT/ACTION_DELETE'}"></span>
+				<span class="text" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_DELETE'}"></span>
 			</span>
 			<span class="item new_window" data-bind="command: openNewWindowCommand, visible: !bNewTab, customTooltip: '%MODULENAME%/ACTION_OPEN_IN_NEW_WINDOW'">
 				<span class="icon"></span>
@@ -76,12 +76,12 @@
 	<div class="thread_content scroll-inner">
 		<div class="details" data-bind="visible: !clientDetailsVisible() && '' !== externalContentUrl()">
 			<div class="details_content">
-				<span class="link details_show" data-bind="i18n: {'key': 'CORECLIENT/ACTION_SHOW_DETAILS'}, click: showClientDetails"></span>
+				<span class="link details_show" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_SHOW_DETAILS'}, click: showClientDetails"></span>
 			</div>
 		</div>
 		<div class="details" data-bind="visible: clientDetailsVisible() && '' !== externalContentUrl()">
 			<div class="details_content">
-				<span class="link details_hide" data-bind="i18n: {'key': 'CORECLIENT/ACTION_HIDE_DETAILS'}, click: hideClientDetails"></span>
+				<span class="link details_hide" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_HIDE_DETAILS'}, click: hideClientDetails"></span>
 				<!-- ko if: '' !== externalContentUrl() -->
 					<iframe class="external_content" src="javascript:void(0);"
 						data-bind="attr: { 'src': externalContentUrl }"></iframe>
@@ -89,7 +89,7 @@
 			</div>
 		</div>
 
-		<div class="notification" data-bind="visible: loadingViewPane, i18n: {'key': 'CORECLIENT/INFO_LOADING'}"></div>
+		<div class="notification" data-bind="visible: loadingViewPane, i18n: {'key': 'COREWEBCLIENT/INFO_LOADING'}"></div>
 		
 		<div class="link more" data-bind="visible: hasMorePosts() && !loadingMoreMessages() && !loadingViewPane(), 
 			 click: commandGetOlderPosts, i18n: {'key': '%MODULENAME%/ACTION_SHOW_MORE_MESSAGES'}"></div>

@@ -3,12 +3,12 @@
 		<div class="items_list">
 			<div class="details" data-bind="visible: !clientDetailsVisible() && '' !== externalContentUrl()">
 				<div class="details_content">
-					<span class="link details_show" data-bind="i18n: {'key': 'CORECLIENT/ACTION_SHOW_DETAILS'}, click: showClientDetails"></span>
+					<span class="link details_show" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_SHOW_DETAILS'}, click: showClientDetails"></span>
 				</div>
 			</div>
 			<div class="details" data-bind="visible: clientDetailsVisible() && '' !== externalContentUrl()">
 				<div class="details_content">
-					<span class="link details_hide" data-bind="i18n: {'key': 'CORECLIENT/ACTION_HIDE_DETAILS'}, click: hideClientDetails"></span>
+					<span class="link details_hide" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_HIDE_DETAILS'}, click: hideClientDetails"></span>
 					<!-- ko if: '' !== externalContentUrl() -->
 						<iframe class="external_content" src="javascript:void(0);"
 							data-bind="attr: { 'src': externalContentUrl }"></iframe>
@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<span class="list_notification" data-bind="visible: isSearch() && !isEmptyList()">
-				<span class="link" data-bind="i18n: {'key': 'CORECLIENT/ACTION_CLEAR_SEARCH'}, click: onClearSearch"></span>
+				<span class="link" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_CLEAR_SEARCH'}, click: onClearSearch"></span>
 				<span class="description" data-bind="text: searchText"></span>
 			</span>
 			

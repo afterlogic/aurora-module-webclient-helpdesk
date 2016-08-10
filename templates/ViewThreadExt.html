@@ -29,9 +29,9 @@
 			</span>
 			<!-- /ko -->
 			
-			<span class="item delete" data-bind="command: deleteCommand, customTooltip: 'CORECLIENT/ACTION_DELETE'">
+			<span class="item delete" data-bind="command: deleteCommand, customTooltip: 'COREWEBCLIENT/ACTION_DELETE'">
 				<span class="icon"></span>
-				<span class="text" data-bind="i18n: {'key': 'CORECLIENT/ACTION_DELETE'}"></span>
+				<span class="text" data-bind="i18n: {'key': 'COREWEBCLIENT/ACTION_DELETE'}"></span>
 			</span>
 			<span class="item resolve" data-bind="command: closeCommand, customTooltip: '%MODULENAME%/ACTION_CLOSE_ISSUE', visible: state() !== Enums.HelpdeskThreadStates.Resolved">
 				<span class="icon"></span>
@@ -49,7 +49,7 @@
 <div class="panel_center" data-bind="customScrollbar: {'scrollToBottomTrigger': scrollToBottomTrigger, 
 	 'scrollToTopTrigger': scrollToTopTrigger}">
 	<div class="thread_content scroll-inner">
-		<div class="notification" data-bind="visible: loadingViewPane, i18n: {'key': 'CORECLIENT/INFO_LOADING'}"></div>
+		<div class="notification" data-bind="visible: loadingViewPane, i18n: {'key': 'COREWEBCLIENT/INFO_LOADING'}"></div>
 		<div class="link more" data-bind="visible: hasMorePosts() && !loadingMoreMessages() && !loadingViewPane(), 
 			 click: commandGetOlderPosts, i18n: {'key': '%MODULENAME%/ACTION_SHOW_MORE_MESSAGES'}"></div>
 		<div class="link more" data-bind="visible: loadingMoreMessages() && !loadingViewPane(), i18n: {'key': '%MODULENAME%/ACTION_SHOW_MORE_MESSAGES_IN_PROGRESS'}"></div>
