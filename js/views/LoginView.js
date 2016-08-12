@@ -216,8 +216,6 @@ CLoginView.prototype.actionSend = function ()
 
 CLoginView.prototype.actionLogin = function ()
 {
-	$('.check_autocomplete_input').trigger('input').trigger('change').trigger('keydown');
-
 	if ($.trim(this.password()) && '' !== $.trim(this.email()))
 	{
 		this.storeQuestion();

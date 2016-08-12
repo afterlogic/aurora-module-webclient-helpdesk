@@ -16,7 +16,7 @@
 							<div class="row email" data-bind="css: {'focused': emailFocus(), 'filled': email().length > 0, shake: shake()}">
 								<label for="email" class="placeholder"></label>
 								<span class="value">
-									<input id="email" class="input check_autocomplete_input" type="email" spellcheck="false"
+									<input id="email" class="input" type="email" spellcheck="false"
 										   data-bind="value: email, hasfocus: emailFocus, valueUpdate: 'afterkeydown', i18n: {'key': 'COREWEBCLIENT/LABEL_EMAIL', 'type': 'placeholder'}" />
 								</span>
 							</div>
@@ -24,7 +24,7 @@
 							<div class="row password" data-bind="css: {'focused': passwordFocus(), 'filled': password().length > 0, shake: shake()}">
 								<label for="password" class="placeholder"></label>
 								<span class="value">
-									<input id="password" class="input check_autocomplete_input" type="password" spellcheck="false"
+									<input id="password" class="input" type="password" spellcheck="false"
 										   data-bind="value: password, hasfocus: passwordFocus, valueUpdate: 'afterkeydown', i18n: {'key': 'COREWEBCLIENT/LABEL_PASSWORD', 'type': 'placeholder'}" />
 								</span>
 							</div>
