@@ -28,7 +28,7 @@ var
  */
 function CLoginView()
 {
-	CAbstractScreenView.call(this);
+	CAbstractScreenView.call(this, '%ModuleName%');
 	
 	this.emailFocus = ko.observable(false);
 	this.email = ko.observable('');
