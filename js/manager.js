@@ -19,7 +19,7 @@ module.exports = function (oAppData) {
 	
 	return {
 		isAvailable: function (iUserRole, bPublic) {
-			return !bPublic && iUserRole === Enums.UserRole.PowerUser || iUserRole === Enums.UserRole.RegisteredUser;
+			return !bPublic && iUserRole === Enums.UserRole.NormalUser || iUserRole === Enums.UserRole.Customer;
 		},
 		start: function (ModulesManager) {
 			ModulesManager.run('SettingsWebclient', 'registerSettingsTab', [function () { return require('modules/%ModuleName%/js/views/HelpdeskSettingsPaneView.js'); }, Settings.HashModuleName, TextUtils.i18n('%MODULENAME%/LABEL_SETTINGS_TAB')]);
