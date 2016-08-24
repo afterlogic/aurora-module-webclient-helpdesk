@@ -117,6 +117,8 @@ class HelpDeskWebclientModule extends AApiModule
 	
 	public function GetAppData()
 	{
+		\CApi::checkUserRoleIsAtLeast(\EUserRole::Anonymous);
+		
 		return array(
 			'AllowEmailNotifications' => '', //AppData.User ? !!AppData.User.AllowHelpdeskNotifications : false,
 			'IsAgent' => '', //AppData.User ? !!AppData.User.IsHelpdeskAgent : false,
