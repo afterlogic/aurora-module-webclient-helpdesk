@@ -6,3 +6,5 @@
 *.ini text eol=crlf
 *.json text eol=crlf
 *.html text eol=crlf
+*.less text eol=crlf
+*.gitattributes text eol=crlf
