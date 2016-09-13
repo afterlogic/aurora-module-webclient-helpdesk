@@ -8,6 +8,8 @@ module.exports = function (oAppData) {
 	var
 		_ = require('underscore'),
 		
+		App = require('%PathToCoreWebclientModule%/js/App.js'),
+		
 		TextUtils = require('%PathToCoreWebclientModule%/js/utils/Text.js'),
 				
 		Settings = require('modules/%ModuleName%/js/Settings.js'),
@@ -17,26 +19,40 @@ module.exports = function (oAppData) {
 	
 	Settings.init(oSettings);
 	
-	return {
-		isAvailable: function (iUserRole, bPublic) {
-			return !bPublic && iUserRole === Enums.UserRole.NormalUser || iUserRole === Enums.UserRole.Customer;
-		},
-		start: function (ModulesManager) {
-			ModulesManager.run('SettingsWebclient', 'registerSettingsTab', [function () { return require('modules/%ModuleName%/js/views/HelpdeskSettingsPaneView.js'); }, Settings.HashModuleName, TextUtils.i18n('%MODULENAME%/LABEL_SETTINGS_TAB')]);
-		},
-		getScreens: function () {
-			var oScreens = {};
-			oScreens[Settings.HashModuleName] = function () {
-				return require('modules/%ModuleName%/js/views/HelpdeskView.js');
-			};
-			return oScreens;
-		},
-		getHeaderItem: function () {
-			CheckState.start();
-			return {
-				item: require('modules/%ModuleName%/js/views/HeaderItemView.js'),
-				name: Settings.HashModuleName
-			};
-		}
-	};
+	if (App.isPublic())
+	{
+		return {
+			getScreens: function () {
+				var oScreens = {};
+				oScreens[Settings.HashModuleName] = function () {
+					return require('modules/%ModuleName%/js/views/LoginView.js');
+				};
+				return oScreens;
+			}
+		};
+	}
+	else if (App.getUserRole() === Enums.UserRole.NormalUser || App.getUserRole() === Enums.UserRole.Customer)
+	{
+		return {
+			start: function (ModulesManager) {
+				ModulesManager.run('SettingsWebclient', 'registerSettingsTab', [function () { return require('modules/%ModuleName%/js/views/HelpdeskSettingsPaneView.js'); }, Settings.HashModuleName, TextUtils.i18n('%MODULENAME%/LABEL_SETTINGS_TAB')]);
+			},
+			getScreens: function () {
+				var oScreens = {};
+				oScreens[Settings.HashModuleName] = function () {
+					return require('modules/%ModuleName%/js/views/HelpdeskView.js');
+				};
+				return oScreens;
+			},
+			getHeaderItem: function () {
+				CheckState.start();
+				return {
+					item: require('modules/%ModuleName%/js/views/HeaderItemView.js'),
+					name: Settings.HashModuleName
+				};
+			}
+		};
+	}
+	
+	return null;
 };
