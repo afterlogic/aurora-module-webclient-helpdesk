@@ -115,6 +115,11 @@ class HelpDeskWebclientModule extends AApiModule
 		return $sResult;
 	}
 	
+	/**
+	 * Obtaines list of module settings for authenticated user.
+	 * 
+	 * @return array
+	 */
 	public function GetAppData()
 	{
 		\CApi::checkUserRoleIsAtLeast(\EUserRole::Anonymous);
