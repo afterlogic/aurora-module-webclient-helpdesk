@@ -8,7 +8,7 @@
         },
 	"require":{
 		"php":">=5.4.0",
-		"afterlogic/aurora-module-helpdesk": "dev-master"
+		"afterlogic/aurora-module-helpdesk": "0.2.0"
 	},
 	"extra": {
 		"installer-name": "HelpDeskWebclient"
