@@ -1,3 +1,3 @@
 # aurora-module-webclient-helpdesk
 
-v 0.0.2
+v 0.1.0
