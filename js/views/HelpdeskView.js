@@ -1258,7 +1258,7 @@ CHelpdeskView.prototype.createJuaObject = function (oButton)
 	if (oButton)
 	{
 		var oJua = new CJua({
-			'action': '?/Upload/',
+			'action': '?/Api/',
 			'name': 'jua-uploader',
 			'queueSize': 2,
 			'clickElement': oButton,
