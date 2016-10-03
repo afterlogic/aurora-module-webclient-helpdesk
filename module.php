@@ -105,7 +105,7 @@ class HelpDeskWebclientModule extends AApiModule
 //			$sHelpdeskHash = $this->oHttp->GetQuery('helpdesk', '');
 
 			$sResult = strtr($sResult, array(
-				'{{AppVersion}}' => PSEVEN_APP_VERSION,
+				'{{AppVersion}}' => AURORA_APP_VERSION,
 				'{{IntegratorDir}}' =>  $oApiIntegrator->isRtl() ? 'rtl' : 'ltr',
 				'{{IntegratorLinks}}' => $oApiIntegrator->buildHeadersLink('-helpdesk'),
 				'{{IntegratorBody}}' => $oApiIntegrator->buildBody('-helpdesk')
