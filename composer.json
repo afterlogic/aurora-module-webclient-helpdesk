@@ -6,7 +6,8 @@
                 "type":"zip"
         },
 	"require":{
-		"php":">=5.4.0"
+		"php":">=5.4.0",
+		"sabre/uri": "1.0.*"
 	},
 	"extra": {
 		"installer-name": "HelpDeskWebclient"
