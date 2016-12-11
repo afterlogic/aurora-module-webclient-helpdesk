@@ -22,14 +22,6 @@ _.extend(CHelpdeskAttachmentModel.prototype, CAbstractFileModel.prototype);
 CHelpdeskAttachmentModel.prototype.dataObjectName = 'Object/CHelpdeskAttachment';
 
 /**
- * @returns {CHelpdeskAttachmentModel}
- */
-CHelpdeskAttachmentModel.prototype.getInstance = function ()
-{
-	return new CHelpdeskAttachmentModel();
-};
-
-/**
  * @param {Object} oResult
  */
 CHelpdeskAttachmentModel.prototype.fillDataAfterUploadComplete = function (oResult)
