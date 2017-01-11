@@ -1391,7 +1391,7 @@ CHelpdeskView.prototype.onFileUploadComplete = function (sFileUID, bResult, oRes
 	if (oAttach)
 	{
 		oAttach.onUploadComplete(sFileUID, bResult, oResult);
-		if (oAttach.type().substr(0, 5) === 'image')
+		if (oAttach.mimeType().substr(0, 5) === 'image')
 		{
 			oAttach.thumb(true);
 			oAttach.getInThumbQueue(sThumbSessionUid);

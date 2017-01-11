@@ -27,7 +27,7 @@ CHelpdeskAttachmentModel.prototype.dataObjectName = 'Object/CHelpdeskAttachment'
 CHelpdeskAttachmentModel.prototype.fillDataAfterUploadComplete = function (oResult)
 {
 	this.tempName(oResult.Result.HelpdeskFile.TempName);
-	this.type(oResult.Result.HelpdeskFile.MimeType);
+	this.mimeType(oResult.Result.HelpdeskFile.MimeType);
 	this.hash(oResult.Result.HelpdeskFile.Hash);
 };
 
