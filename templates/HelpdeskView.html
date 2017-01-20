@@ -1,8 +1,7 @@
 <div class="screen HelpdeskLayout" style="display: none;">
 	<div class="panels" data-bind="css: {'agent_area': bAgent, 'user_area': !bAgent}">
-		<div class="panel_helper" data-bind="splitter: {name: 'helpdesk_sub_screens', sizeLeft: 350, minLeft: 250, minRight: 550, resizeToWidth: true}">
+		<div class="panel_helper" data-bind="splitterFlex: {name: 'helpdesk_sub_screens', sizes: [20, 30, 50]}">
 			<div class="panel center_panel threads_panel">
-				<div class="resize_handler"></div>
 				<div class="panel_content">
 					<div class="buttons big_single_button" data-bind="visible: !bAgent">
 						<span class="button" data-bind="click: openNewThread">
