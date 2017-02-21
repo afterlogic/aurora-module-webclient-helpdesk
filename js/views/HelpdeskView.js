@@ -1393,7 +1393,6 @@ CHelpdeskView.prototype.onFileUploadComplete = function (sFileUID, bResult, oRes
 		oAttach.onUploadComplete(sFileUID, bResult, oResult);
 		if (oAttach.mimeType().substr(0, 5) === 'image')
 		{
-			oAttach.thumb(true);
 			oAttach.getInThumbQueue(sThumbSessionUid);
 		}
 	}
