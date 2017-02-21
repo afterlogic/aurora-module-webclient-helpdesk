@@ -14,7 +14,7 @@ var
  */
 function CHelpdeskAttachmentModel()
 {
-	CAbstractFileModel.call(this, Settings.ServerModuleName);
+	CAbstractFileModel.call(this);
 }
 
 _.extend(CHelpdeskAttachmentModel.prototype, CAbstractFileModel.prototype);
