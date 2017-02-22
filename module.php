@@ -1,6 +1,8 @@
 <?php
 
-class HelpDeskWebclientModule extends AApiModule
+namespace Aurora\Modules;
+
+class HelpDeskWebclientModule extends \AApiModule
 {
 	public $oApiHelpDeskManager = null;
 	
@@ -8,7 +10,6 @@ class HelpDeskWebclientModule extends AApiModule
 	
 	public function init() 
 	{
-		//test v2
 		$this->oApiHelpDeskManager = $this->GetManager('main');
 
 		$this->AddEntry('helpdesk', 'EntryHelpDesk');
@@ -29,7 +30,7 @@ class HelpDeskWebclientModule extends AApiModule
 		$sTenantName = \CApi::getTenantName();
 		$mHelpdeskIdTenant = $this->oCoreDecorator->GetTenantIdByName($sTenantName);
 		
-		if (!is_int($mHelpdeskIdTenant))
+		if (!\is_int($mHelpdeskIdTenant))
 		{
 			\CApi::Location('./');
 			return '';
@@ -38,7 +39,7 @@ class HelpDeskWebclientModule extends AApiModule
 		$bDoId = false;
 		$sThread = $this->oHttp->GetQuery('thread');
 		$sThreadAction = $this->oHttp->GetQuery('action');
-		if (0 < strlen($sThread))
+		if (0 < \strlen($sThread))
 		{
 			$iThreadID = $this->oApiHelpDeskManager->getThreadIdByHash($mHelpdeskIdTenant, $sThread);
 			if (0 < $iThreadID)
@@ -49,7 +50,7 @@ class HelpDeskWebclientModule extends AApiModule
 		}
 
 		$sActivateHash = $this->oHttp->GetQuery('activate');
-		if (0 < strlen($sActivateHash) && !$this->oHttp->HasQuery('forgot'))
+		if (0 < \strlen($sActivateHash) && !$this->oHttp->HasQuery('forgot'))
 		{
 			$bRemove = true;
 			$oUser = $this->oApiHelpDeskManager->getUserByActivateHash($mHelpdeskIdTenant, $sActivateHash);
@@ -92,10 +93,10 @@ class HelpDeskWebclientModule extends AApiModule
 		
 		$oCoreClientModule = \CApi::GetModule('CoreWebclient');
 		if ($oCoreClientModule instanceof \AApiModule) {
-			$sResult = file_get_contents($oCoreClientModule->GetPath().'/templates/Index.html');
+			$sResult = \file_get_contents($oCoreClientModule->GetPath().'/templates/Index.html');
 		}
 		
-		if (is_string($sResult))
+		if (\is_string($sResult))
 		{
 			$sFrameOptions = \CApi::GetConf('labs.x-frame-options', '');
 			if (0 < \strlen($sFrameOptions)) {
@@ -104,7 +105,7 @@ class HelpDeskWebclientModule extends AApiModule
 			
 //			$sHelpdeskHash = $this->oHttp->GetQuery('helpdesk', '');
 
-			$sResult = strtr($sResult, array(
+			$sResult = \strtr($sResult, array(
 				'{{AppVersion}}' => AURORA_APP_VERSION,
 				'{{IntegratorDir}}' =>  $oApiIntegrator->isRtl() ? 'rtl' : 'ltr',
 				'{{IntegratorLinks}}' => $oApiIntegrator->buildHeadersLink('-helpdesk'),
@@ -151,9 +152,9 @@ class HelpDeskWebclientModule extends AApiModule
 			
 			if ($aUrlData['query'])
 			{
-				$aParameters = explode('&', $aUrlData['query']);
+				$aParameters = \explode('&', $aUrlData['query']);
 				
-				if (!is_array($aParameters))
+				if (!\is_array($aParameters))
 				{
 					$aParameters = array($aParameters);
 				}
@@ -162,8 +163,8 @@ class HelpDeskWebclientModule extends AApiModule
 				$aParameters = array();
 				
 				foreach ($aParametersTemp as &$aParameter) {
-					$aParameterData = explode('=', $aParameter);
-					if (is_array($aParameterData))
+					$aParameterData = \explode('=', $aParameter);
+					if (\is_array($aParameterData))
 					{
 						$aParameters[$aParameterData[0]] = $aParameterData[1];
 					}
