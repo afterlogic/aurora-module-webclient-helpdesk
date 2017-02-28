@@ -2,7 +2,7 @@
 
 namespace Aurora\Modules;
 
-class HelpDeskWebclientModule extends \AApiModule
+class HelpDeskWebclientModule extends \Aurora\System\AbstractModule
 {
 	public $oApiHelpDeskManager = null;
 	
@@ -14,8 +14,8 @@ class HelpDeskWebclientModule extends \AApiModule
 
 		$this->AddEntry('helpdesk', 'EntryHelpDesk');
 		
-		$this->oCoreDecorator = \CApi::GetModuleDecorator('Core');
-		$this->oHelpDeskDecorator = \CApi::GetModuleDecorator('HelpDesk');
+		$this->oCoreDecorator = \Aurora\System\Api::GetModuleDecorator('Core');
+		$this->oHelpDeskDecorator = \Aurora\System\Api::GetModuleDecorator('HelpDesk');
 		
 		$this->subscribeEvent('System::DetectTenant', array($this, 'onTenantDetect'));
 	}
@@ -24,15 +24,15 @@ class HelpDeskWebclientModule extends \AApiModule
 	{
 		$oAuthenticatedAccount = $this->oHelpDeskDecorator->GetCurrentUser();
 
-		$oApiIntegrator = \CApi::GetSystemManager('integrator');
+		$oApiIntegrator = \Aurora\System\Api::GetSystemManager('integrator');
 		
 //		$mHelpdeskLogin = $this->oHttp->GetQuery('helpdesk');
-		$sTenantName = \CApi::getTenantName();
+		$sTenantName = \Aurora\System\Api::getTenantName();
 		$mHelpdeskIdTenant = $this->oCoreDecorator->GetTenantIdByName($sTenantName);
 		
 		if (!\is_int($mHelpdeskIdTenant))
 		{
-			\CApi::Location('./');
+			\Aurora\System\Api::Location('./');
 			return '';
 		}
 
@@ -87,18 +87,18 @@ class HelpDeskWebclientModule extends \AApiModule
 			}
 
 			$oApiIntegrator->skipMobileCheck();
-			\CApi::Location('./');
+			\Aurora\System\Api::Location('./');
 			return '';
 		}
 		
-		$oCoreClientModule = \CApi::GetModule('CoreWebclient');
-		if ($oCoreClientModule instanceof \AApiModule) {
+		$oCoreClientModule = \Aurora\System\Api::GetModule('CoreWebclient');
+		if ($oCoreClientModule instanceof \Aurora\System\AbstractModule) {
 			$sResult = \file_get_contents($oCoreClientModule->GetPath().'/templates/Index.html');
 		}
 		
 		if (\is_string($sResult))
 		{
-			$sFrameOptions = \CApi::GetConf('labs.x-frame-options', '');
+			$sFrameOptions = \Aurora\System\Api::GetConf('labs.x-frame-options', '');
 			if (0 < \strlen($sFrameOptions)) {
 				@\header('X-Frame-Options: '.$sFrameOptions);
 			}
@@ -123,7 +123,7 @@ class HelpDeskWebclientModule extends \AApiModule
 	 */
 	public function GetSettings()
 	{
-		\CApi::checkUserRoleIsAtLeast(\EUserRole::Anonymous);
+		\Aurora\System\Api::checkUserRoleIsAtLeast(\EUserRole::Anonymous);
 		
 		return array(
 			'AllowEmailNotifications' => '', //AppData.User ? !!AppData.User.AllowHelpdeskNotifications : false,
