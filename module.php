@@ -2,7 +2,7 @@
 
 namespace Aurora\Modules;
 
-class HelpDeskWebclientModule extends \Aurora\System\AbstractModule
+class HelpDeskWebclientModule extends \Aurora\System\Module\AbstractModule
 {
 	public $oApiHelpDeskManager = null;
 	
@@ -92,7 +92,7 @@ class HelpDeskWebclientModule extends \Aurora\System\AbstractModule
 		}
 		
 		$oCoreClientModule = \Aurora\System\Api::GetModule('CoreWebclient');
-		if ($oCoreClientModule instanceof \Aurora\System\AbstractModule) {
+		if ($oCoreClientModule instanceof \Aurora\System\Module\AbstractModule) {
 			$sResult = \file_get_contents($oCoreClientModule->GetPath().'/templates/Index.html');
 		}
 		
