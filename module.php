@@ -1,8 +1,8 @@
 <?php
 
-namespace Aurora\Modules;
+namespace Aurora\Modules\HelpDeskWebclient;
 
-class HelpDeskWebclientModule extends \Aurora\System\Module\AbstractModule
+class Module extends \Aurora\System\Module\AbstractModule
 {
 	public $oApiHelpDeskManager = null;
 	
