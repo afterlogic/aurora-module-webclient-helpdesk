@@ -3,9 +3,7 @@
 var
 	_ = require('underscore'),
 	
-	CAbstractFileModel = require('%PathToCoreWebclientModule%/js/models/CAbstractFileModel.js'),
-	
-	Settings = require('modules/%ModuleName%/js/Settings.js')
+	CAbstractFileModel = require('%PathToCoreWebclientModule%/js/models/CAbstractFileModel.js')
 ;
 
 /**
@@ -18,8 +16,6 @@ function CHelpdeskAttachmentModel()
 }
 
 _.extend(CHelpdeskAttachmentModel.prototype, CAbstractFileModel.prototype);
-
-CHelpdeskAttachmentModel.prototype.dataObjectName = 'Object/CHelpdeskAttachment';
 
 /**
  * @param {Object} oResult
