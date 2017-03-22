@@ -98,7 +98,8 @@ class Module extends \Aurora\System\Module\AbstractWebclientModule
 		
 		if (\is_string($sResult))
 		{
-			$sFrameOptions = \Aurora\System\Api::GetConf('labs.x-frame-options', '');
+			$oSettings =& \Aurora\System\Api::GetSettings();
+			$sFrameOptions = $oSettings->GetConf('XFrameOptions', '');
 			if (0 < \strlen($sFrameOptions)) {
 				@\header('X-Frame-Options: '.$sFrameOptions);
 			}
