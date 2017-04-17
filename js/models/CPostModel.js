@@ -58,8 +58,7 @@ CPostModel.prototype.parse = function (oData)
 			iIndex = 0,
 			iLen = 0,
 			oObject = null,
-			aList = [],
-			sThumbSessionUid = Date.now().toString()
+			aList = []
 		;
 
 		for (iLen = oData.Attachments.length; iIndex < iLen; iIndex++)
@@ -68,7 +67,6 @@ CPostModel.prototype.parse = function (oData)
 			{
 				oObject = new CHelpdeskAttachmentModel();
 				oObject.parse(oData.Attachments[iIndex]);
-				oObject.getInThumbQueue(sThumbSessionUid);
 
 				aList.push(oObject);
 

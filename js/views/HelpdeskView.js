@@ -1383,18 +1383,11 @@ CHelpdeskView.prototype.onFileUploadStart = function (sFileUID)
  */
 CHelpdeskView.prototype.onFileUploadComplete = function (sFileUID, bResult, oResult)
 {
-	var
-		oAttach = this.getUploadedFileByUID(sFileUID),
-		sThumbSessionUid = Date.now().toString()
-	;
+	var oAttach = this.getUploadedFileByUID(sFileUID);
 
 	if (oAttach)
 	{
 		oAttach.onUploadComplete(sFileUID, bResult, oResult);
-		if (oAttach.mimeType().substr(0, 5) === 'image')
-		{
-			oAttach.getInThumbQueue(sThumbSessionUid);
-		}
 	}
 };
 
