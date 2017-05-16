@@ -59,15 +59,15 @@ CHelpdeskSettingsPaneView.prototype.revertGlobalValues = function ()
 CHelpdeskSettingsPaneView.prototype.getParametersForSave = function ()
 {
 	return {
-		'AllowEmailNotifications': this.allowNotifications() ? '1' : '0',
-		'HelpdeskSignature': this.signature(),
-		'HelpdeskSignatureEnable': this.signatureEnable()
+		'AllowEmailNotifications': this.allowNotifications(),
+		'Signature': this.signature(),
+		'UseSignature': this.signatureEnable() === '1'
 	};
 };
 
 CHelpdeskSettingsPaneView.prototype.applySavedValues = function (oParameters)
 {
-	Settings.update(oParameters.AllowEmailNotifications, oParameters.HelpdeskSignature, oParameters.HelpdeskSignatureEnable);
+	Settings.update(oParameters.AllowEmailNotifications, oParameters.Signature, oParameters.UseSignature);
 };
 
 module.exports = new CHelpdeskSettingsPaneView();

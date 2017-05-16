@@ -128,34 +128,6 @@ class Module extends \Aurora\System\Module\AbstractWebclientModule
 		return $sResult;
 	}
 	
-	/**
-	 * Obtains list of module settings for authenticated user.
-	 * 
-	 * @return array
-	 */
-	public function GetSettings()
-	{
-		\Aurora\System\Api::checkUserRoleIsAtLeast(\EUserRole::Anonymous);
-		
-		return array(
-			'AllowEmailNotifications' => '', //AppData.User ? !!AppData.User.AllowHelpdeskNotifications : false,
-			'IsAgent' => '', //AppData.User ? !!AppData.User.IsHelpdeskAgent : false,
-			'UserEmail' => '', //AppData.User ? Types.pString(AppData.User.Email) : '',
-			'signature' => '', //ko.observable(AppData.User ? Types.pString(AppData.User.HelpdeskSignature) : ''),
-			'useSignature' => '', //ko.observable(AppData.User ? !!AppData.User.HelpdeskSignatureEnable : false),
-			'ActivatedEmail' => '',
-			'AfterThreadsReceivingAction' => '', //Types.pString(AppData.HelpdeskThreadAction), // add, close
-			'ClientDetailsUrl' => '', //Types.pString(AppData.HelpdeskIframeUrl),
-			'ClientSiteName' => '', //Types.pString(AppData.HelpdeskSiteName), // todo
-			'ForgotHash' => '', //Types.pString(AppData.HelpdeskForgotHash),
-			'LoginLogoUrl' => '', //Types.pString(AppData.HelpdeskStyleImage),
-			'SelectedThreadId' => 0, //Types.pInt(AppData.HelpdeskThreadId),
-			'SocialEmail' => '', //Types.pString(AppData.SocialEmail),
-			'SocialIsLoggedIn' => '', //!!AppData.SocialIsLoggedIn, // ???
-			'ThreadsPerPage' => 10 // add to settings
-		);
-	}
-	
 	public function onTenantDetect($oParams, &$mResult)
 	{
 		if ($oParams && $oParams['URL'])

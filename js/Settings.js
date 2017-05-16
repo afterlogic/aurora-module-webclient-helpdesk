@@ -17,14 +17,14 @@ module.exports = {
 	AllowTwitterAuth: false,
 	AfterThreadsReceivingAction: 'add', // add, close
 	ClientDetailsUrl: '',
-	ClientSiteName: '', // todo
+	ClientSiteName: '',
 	ForgotHash: '',
 	IsAgent: false,
 	LoginLogoUrl: '',
 	SelectedThreadId: 0,
 	signature: ko.observable(''),
 	SocialEmail: '',
-	SocialIsLoggedIn: false, // ???
+	SocialIsLoggedIn: false,
 	ThreadsPerPage: 10,
 	UserEmail: '',
 	useSignature: ko.observable(false),
@@ -39,15 +39,15 @@ module.exports = {
 			this.AllowTwitterAuth = !!oAppDataSection.AllowTwitterAuth;
 			this.AfterThreadsReceivingAction = Types.pString(oAppDataSection.AfterThreadsReceivingAction); // add, close
 			this.ClientDetailsUrl = Types.pString(oAppDataSection.ClientDetailsUrl);
-			this.ClientSiteName = Types.pString(oAppDataSection.ClientSiteName); // todo
+			this.ClientSiteName = Types.pString(oAppDataSection.ClientSiteName);
 			this.ForgotHash = Types.pString(oAppDataSection.ForgotHash);
 			this.IsAgent = !!oAppDataSection.IsAgent;
 			this.LoginLogoUrl = Types.pString(oAppDataSection.LoginLogoUrl);
 			this.SelectedThreadId = Types.pInt(oAppDataSection.SelectedThreadId);
 			this.signature(Types.pString(oAppDataSection.Signature));
 			this.SocialEmail = Types.pString(oAppDataSection.SocialEmail);
-			this.SocialIsLoggedIn = !!oAppDataSection.SocialIsLoggedIn; // ???
-			this.ThreadsPerPage = oAppDataSection.ThreadsPerPage; // add to settings
+			this.SocialIsLoggedIn = !!oAppDataSection.SocialIsLoggedIn;
+			this.ThreadsPerPage = oAppDataSection.ThreadsPerPage;
 			this.UserEmail = Types.pString(oAppDataSection.UserEmail);
 			this.useSignature(!!oAppDataSection.UseSignature);
 		}
