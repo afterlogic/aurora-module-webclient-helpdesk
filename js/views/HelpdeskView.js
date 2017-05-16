@@ -466,7 +466,6 @@ CHelpdeskView.prototype.deletePost = function (oPost)
 				{
 					this.postForDelete(oPost);
 					Ajax.send('DeletePost', {
-						//'Action': 'HelpdeskPostDelete', //probably unused
 						'PostId': oPost.Id,
 						'ThreadId': oPost.IdThread
 					}, this.onDeletePostResponse, this);
@@ -1212,7 +1211,7 @@ CHelpdeskView.prototype.createPost = function (iThreadId, sSubject, sText, fResp
 
 	oParameters = {
 		'ThreadId': iThreadId,
-		'IsInternal': this.internalNote() ? 1 : 0,
+		'IsInternal': this.internalNote(),
 		'Subject': sSubject,
 		'Text': sText,
 		'Cc': this.ccAddr(),

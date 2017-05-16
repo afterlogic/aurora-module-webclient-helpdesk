@@ -225,7 +225,7 @@ CLoginView.prototype.actionLogin = function ()
 		Ajax.send('Login', {
 			'Login': this.email(),
 			'Password': this.password(),
-			'SignMe': this.signMe() ? '1' : '0'
+			'SignMe': this.signMe()
 		}, this.onHelpdeskLoginResponse, this);
 	}
 	else
