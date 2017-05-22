@@ -71,12 +71,12 @@ function CThreadListModel()
  */
 CThreadListModel.prototype.parse = function (oData)
 {
-	this.Id = oData.IdHelpdeskThread;
+	this.Id = oData.IdThread;
 	this.ThreadHash = Types.pString(oData.ThreadHash);
 	this.IdOwner = oData.IdOwner;
 	this.ItsMe = !!oData.ItsMe;
 	this.sSubject = Types.pString(oData.Subject);
-	this.time(Types.pInt(oData.Updated));
+	this.time(moment(oData.Updated).unix());
 	this.aOwner = Types.isNonEmptyArray(oData.Owner) ? oData.Owner : ['', ''];
 	this.sEmail = this.aOwner[0] || '';
 	this.sName = this.aOwner[1] || '';

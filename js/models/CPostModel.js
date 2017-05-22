@@ -2,6 +2,7 @@
 
 var
 	ko = require('knockout'),
+	moment = require('moment'),
 	
 	TextUtils = require('%PathToCoreWebclientModule%/js/utils/Text.js'),
 	Types = require('%PathToCoreWebclientModule%/js/utils/Types.js'),
@@ -40,12 +41,12 @@ function CPostModel()
  */
 CPostModel.prototype.parse = function (oData)
 {
-	this.Id = oData.IdHelpdeskPost;
-	this.IdThread = oData.IdHelpdeskThread;
+	this.Id = oData.IdPost;
+	this.IdThread = oData.IdThread;
 	this.IdOwner = oData.IdOwner;
 	this.bThreadOwner = oData.IsThreadOwner;
 	this.sFrom = Types.isNonEmptyArray(oData.Owner) ? oData.Owner[1] || oData.Owner[0] || '' : TextUtils.i18n('%MODULENAME%/LABEL_DELETED_USER');
-	this.sDate = CDateModel.prototype.convertDate(oData.Created);
+	this.sDate = CDateModel.prototype.convertDate(moment.utc(oData.Created));
 	this.iType = oData.Type;
 	this.bSysType = oData.SystemType;
 	this.sText = Types.pString(oData.Text);

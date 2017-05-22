@@ -643,7 +643,7 @@ CHelpdeskView.prototype.onGetThreadsResponse = function (oResponse, oRequest)
 	{
 		for (iLen = aThreadList.length; iIndex < iLen; iIndex++)
 		{
-			if (aThreadList[iIndex] && 'Object/CHelpdeskThread' === aThreadList[iIndex]['@Object'])
+			if (aThreadList[iIndex] && 'Object/CThread' === aThreadList[iIndex]['@Object'])
 			{
 				oObject = new CThreadListModel();
 				oObject.parse(aThreadList[iIndex]);
@@ -791,7 +791,7 @@ CHelpdeskView.prototype.onGetPostsResponse = function (oResponse, oRequest)
 
 			for (iLen = aPostList.length; iIndex < iLen; iIndex++)
 			{
-				if (aPostList[iIndex] && 'Object/CHelpdeskPost' === aPostList[iIndex]['@Object'])
+				if (aPostList[iIndex] && 'Object/CPost' === aPostList[iIndex]['@Object'])
 				{
 					oObject = new CPostModel();
 					oObject.parse(aPostList[iIndex]);
