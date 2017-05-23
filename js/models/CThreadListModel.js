@@ -71,7 +71,7 @@ function CThreadListModel()
  */
 CThreadListModel.prototype.parse = function (oData)
 {
-	this.Id = oData.IdThread;
+	this.Id = oData.EntityId;
 	this.ThreadHash = Types.pString(oData.ThreadHash);
 	this.IdOwner = oData.IdOwner;
 	this.ItsMe = !!oData.ItsMe;
