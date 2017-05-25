@@ -21,7 +21,7 @@ class Module extends \Aurora\System\Module\AbstractWebclientModule
 	
 	public function init() 
 	{
-		$this->oApiHelpDeskManager = $this->GetManager('main');
+//		$this->oApiHelpDeskManager = $this->GetManager('main');
 
 		$this->AddEntry('helpdesk', 'EntryHelpDesk');
 		
