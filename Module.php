@@ -25,8 +25,8 @@ class Module extends \Aurora\System\Module\AbstractWebclientModule
 
 		$this->AddEntry('helpdesk', 'EntryHelpDesk');
 		
-		$this->oCoreDecorator = \Aurora\System\Api::GetModuleDecorator('Core');
-		$this->oHelpDeskDecorator = \Aurora\System\Api::GetModuleDecorator('HelpDesk');
+		$this->oCoreDecorator = \Aurora\Modules\Core\Module::Decorator();
+		$this->oHelpDeskDecorator = \Aurora\Modules\HelpDesk\Module::Decorator();
 		
 		$this->subscribeEvent('System::DetectTenant', array($this, 'onTenantDetect'));
 	}
