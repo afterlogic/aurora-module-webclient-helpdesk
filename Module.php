@@ -87,9 +87,6 @@ class Module extends \Aurora\System\Module\AbstractWebclientModule
 			}
 		}
 
-	
-		//TODO oApiCapabilityManager
-//		if ($oAuthenticatedAccount && $this->oApiCapabilityManager->isHelpdeskSupported($oAuthenticatedAccount) && $oAuthenticatedAccount->IdTenant === $mHelpdeskIdTenant)
 		if ($oAuthenticatedAccount && $oAuthenticatedAccount->IdTenant === $mHelpdeskIdTenant)
 		{
 			if (!$bDoId)
