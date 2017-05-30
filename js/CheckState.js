@@ -4,12 +4,13 @@ var
 	_ = require('underscore'),
 	
 	Ajax = require('modules/%ModuleName%/js/Ajax.js'),
+	App = require('%PathToCoreWebclientModule%/js/App.js'),
 	UserSettings = require('%PathToCoreWebclientModule%/js/Settings.js'),
 	
 	Settings = require('modules/%ModuleName%/js/Settings.js'),
 	HeaderItemView = require('modules/%ModuleName%/js/views/HeaderItemView.js'),
 	
-	bAgent = false,
+	bAgent = (App.getUserRole() === Enums.UserRole.NormalUser),
 	iTimer = 0
 ;
 

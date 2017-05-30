@@ -51,6 +51,10 @@ function CHelpdeskView()
 	
 	this.browserTitle = ko.observable(TextUtils.i18n('%MODULENAME%/HEADING_BROWSER_TAB'));
 	
+	this.bExtApp = bExtApp;
+	this.bAgent = (App.getUserRole() === Enums.UserRole.NormalUser);
+	this.bNewTab = App.isNewTab();
+
 	var
 		self = this,
 		fChangeStateHelper = function(state) {
@@ -70,11 +74,6 @@ function CHelpdeskView()
 	this.bRtl = UserSettings.IsRTL;
 
 	this.iAutoCheckTimer = 0;
-
-	this.bExtApp = bExtApp;
-	this.bAgent = (window.auroraAppData.User && window.auroraAppData.User.Role === 1) ? true : false;
-//	this.bAgent = true;
-	this.bNewTab = App.isNewTab();
 
 	this.signature = Settings.signature;
 	this.signatureEnable = Settings.useSignature;
