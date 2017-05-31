@@ -35,7 +35,7 @@ class Module extends \Aurora\System\Module\AbstractWebclientModule
 	{
 		$oAuthenticatedAccount = $this->oHelpDeskDecorator->GetCurrentUser();
 
-		$oApiIntegrator = \Aurora\System\Api::GetSystemManager('integrator');
+		$oApiIntegrator = new \Aurora\Modules\Core\Managers\Integrator();
 		
 //		$mHelpdeskLogin = $this->oHttp->GetQuery('helpdesk');
 		$sTenantName = \Aurora\System\Api::getTenantName();
