@@ -22,9 +22,12 @@ _.extend(CHelpdeskAttachmentModel.prototype, CAbstractFileModel.prototype);
  */
 CHelpdeskAttachmentModel.prototype.fillDataAfterUploadComplete = function (oResult)
 {
-	this.tempName(oResult.Result.HelpdeskFile.TempName);
-	this.mimeType(oResult.Result.HelpdeskFile.MimeType);
-	this.hash(oResult.Result.HelpdeskFile.Hash);
+	if (oResult && oResult.Result && oResult.Result.HelpdeskFile)
+	{
+		this.tempName(oResult.Result.HelpdeskFile.TempName);
+		this.mimeType(oResult.Result.HelpdeskFile.MimeType);
+		this.hash(oResult.Result.HelpdeskFile.Hash);
+	}
 };
 
 module.exports = CHelpdeskAttachmentModel;
