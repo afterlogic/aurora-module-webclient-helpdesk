@@ -1,16 +1,18 @@
 {
 	"name": "afterlogic/aurora-module-webclient-helpdesk",
-    	"type": "aurora-module",
-    	"dist":{
-               "url":"https://github.com/afterlogic/aurora-module-webclient-helpdesk/archive/master.zip",
-                "type":"zip"
-        },
-	"require":{
-		"php":">=5.4.0",
+	"type": "aurora-module",
+	"dist": {
+		"url": "https://github.com/afterlogic/aurora-module-webclient-helpdesk/archive/master.zip",
+		"type": "zip"
+	},
+	"require": {
+		"php": ">=5.4.0",
 		"afterlogic/aurora-framework": "~0.1",
 		"sabre/uri": "1.0.*"
 	},
 	"extra": {
-		"installer-name": "HelpDeskWebclient"
+		"installer-name": "HelpDeskWebclient",
+		"include-in-mobile": false,
+		"include-in-desktop": true
 	}
 }
