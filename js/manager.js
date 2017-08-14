@@ -1,14 +1,11 @@
 'use strict';
 
 module.exports = function (oAppData) {
-	require('modules/%ModuleName%/js/enums.js');
-	
-	require('modules/%ModuleName%/js/koBindings.js');
-
 	var
 		_ = require('underscore'),
 		
 		App = require('%PathToCoreWebclientModule%/js/App.js'),
+		ModulesManager = require('%PathToCoreWebclientModule%/js/ModulesManager.js'),
 		
 		TextUtils = require('%PathToCoreWebclientModule%/js/utils/Text.js'),
 				
@@ -19,6 +16,14 @@ module.exports = function (oAppData) {
 	
 	Settings.init(oSettings);
 	
+	if (!ModulesManager.isModuleAvailable(Settings.ServerModuleName))
+	{
+		return null;
+	}
+	
+	require('modules/%ModuleName%/js/enums.js');
+	require('modules/%ModuleName%/js/koBindings.js');
+
 	if (App.isPublic())
 	{
 		return {
