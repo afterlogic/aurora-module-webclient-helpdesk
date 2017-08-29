@@ -4,7 +4,7 @@ var $ = require('jquery');
 
 $('body').ready(function () {
 	var
-		oAvaliableModules = {
+		oAvailableModules = {
 			'HelpDeskWebclient': require('modules/HelpDeskWebclient/js/manager.js')
 		},
 		ModulesManager = require('%PathToCoreWebclientModule%/js/ModulesManager.js'),
@@ -12,6 +12,6 @@ $('body').ready(function () {
 	;
 	
 	App.setPublic();
-	ModulesManager.init(oAvaliableModules);
+	ModulesManager.init(oAvailableModules);
 	App.init();
 });
