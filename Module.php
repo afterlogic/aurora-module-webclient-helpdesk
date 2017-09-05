@@ -115,7 +115,7 @@ class Module extends \Aurora\System\Module\AbstractWebclientModule
 //			$sHelpdeskHash = $this->oHttp->GetQuery('helpdesk', '');
 
 			$sResult = \strtr($sResult, array(
-				'{{AppVersion}}' => AURORA_APP_VERSION,
+				'{{AppVersion}}' => AU_APP_VERSION,
 				'{{IntegratorDir}}' =>  $oApiIntegrator->isRtl() ? 'rtl' : 'ltr',
 				'{{IntegratorLinks}}' => $oApiIntegrator->buildHeadersLink('-helpdesk'),
 				'{{IntegratorBody}}' => $oApiIntegrator->buildBody('-helpdesk')
