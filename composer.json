@@ -11,8 +11,6 @@
 		"sabre/uri": "1.0.*"
 	},
 	"extra": {
-		"installer-name": "HelpDeskWebclient",
-		"include-in-mobile": false,
-		"include-in-desktop": true
+		"installer-name": "HelpDeskWebclient"
 	}
 }
