@@ -11,7 +11,9 @@ module.exports = function (oAppData) {
 				
 		Settings = require('modules/%ModuleName%/js/Settings.js'),
 		oSettings = _.extend({}, oAppData[Settings.ServerModuleName] || {}, oAppData['%ModuleName%'] || {}),
-		CheckState = require('modules/%ModuleName%/js/CheckState.js')
+		CheckState = require('modules/%ModuleName%/js/CheckState.js'),
+		
+		HeaderItemView = null
 	;
 	
 	Settings.init(oSettings);
@@ -50,9 +52,13 @@ module.exports = function (oAppData) {
 				return oScreens;
 			},
 			getHeaderItem: function () {
+				if (HeaderItemView === null)
+				{
+					HeaderItemView = require('modules/%ModuleName%/js/views/HeaderItemView.js');
+				}
 				CheckState.start();
 				return {
-					item: require('modules/%ModuleName%/js/views/HeaderItemView.js'),
+					item: HeaderItemView,
 					name: Settings.HashModuleName
 				};
 			}
