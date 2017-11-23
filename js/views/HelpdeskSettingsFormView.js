@@ -13,7 +13,7 @@ var
 /**
  * @constructor
  */
-function CHelpdeskSettingsPaneView()
+function CHelpdeskSettingsFormView()
 {
 	CAbstractSettingsFormView.call(this, Settings.ServerModuleName);
 
@@ -36,11 +36,11 @@ function CHelpdeskSettingsPaneView()
 	}, this);
 }
 
-_.extendOwn(CHelpdeskSettingsPaneView.prototype, CAbstractSettingsFormView.prototype);
+_.extendOwn(CHelpdeskSettingsFormView.prototype, CAbstractSettingsFormView.prototype);
 
-CHelpdeskSettingsPaneView.prototype.ViewTemplate = '%ModuleName%_HelpdeskSettingsPaneView';
+CHelpdeskSettingsFormView.prototype.ViewTemplate = '%ModuleName%_HelpdeskSettingsFormView';
 
-CHelpdeskSettingsPaneView.prototype.getCurrentValues = function ()
+CHelpdeskSettingsFormView.prototype.getCurrentValues = function ()
 {
 	return [
 		this.allowNotifications(),
@@ -49,14 +49,14 @@ CHelpdeskSettingsPaneView.prototype.getCurrentValues = function ()
 	];
 };
 
-CHelpdeskSettingsPaneView.prototype.revertGlobalValues = function ()
+CHelpdeskSettingsFormView.prototype.revertGlobalValues = function ()
 {
 	this.allowNotifications(Settings.AllowEmailNotifications);
 	this.signature(Settings.signature());
 	this.signatureEnable(Settings.useSignature() ? '1' : '0');
 };
 
-CHelpdeskSettingsPaneView.prototype.getParametersForSave = function ()
+CHelpdeskSettingsFormView.prototype.getParametersForSave = function ()
 {
 	return {
 		'AllowEmailNotifications': this.allowNotifications(),
@@ -65,9 +65,9 @@ CHelpdeskSettingsPaneView.prototype.getParametersForSave = function ()
 	};
 };
 
-CHelpdeskSettingsPaneView.prototype.applySavedValues = function (oParameters)
+CHelpdeskSettingsFormView.prototype.applySavedValues = function (oParameters)
 {
 	Settings.update(oParameters.AllowEmailNotifications, oParameters.Signature, oParameters.UseSignature);
 };
 
-module.exports = new CHelpdeskSettingsPaneView();
+module.exports = new CHelpdeskSettingsFormView();
