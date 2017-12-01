@@ -2,21 +2,18 @@
 
 module.exports = function (oAppData) {
 	var
-		_ = require('underscore'),
-		
 		App = require('%PathToCoreWebclientModule%/js/App.js'),
 		ModulesManager = require('%PathToCoreWebclientModule%/js/ModulesManager.js'),
 		
 		TextUtils = require('%PathToCoreWebclientModule%/js/utils/Text.js'),
 				
 		Settings = require('modules/%ModuleName%/js/Settings.js'),
-		oSettings = _.extend({}, oAppData[Settings.ServerModuleName] || {}, oAppData['%ModuleName%'] || {}),
 		CheckState = require('modules/%ModuleName%/js/CheckState.js'),
 		
 		HeaderItemView = null
 	;
 	
-	Settings.init(oSettings);
+	Settings.init(oAppData);
 	
 	if (!ModulesManager.isModuleAvailable(Settings.ServerModuleName))
 	{

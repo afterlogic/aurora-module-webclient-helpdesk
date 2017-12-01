@@ -2,6 +2,7 @@
 
 var
 	ko = require('knockout'),
+	_ = require('underscore'),
 	
 	Types = require('%PathToCoreWebclientModule%/js/utils/Types.js')
 ;
@@ -29,31 +30,47 @@ module.exports = {
 	UserEmail: '',
 	useSignature: ko.observable(false),
 	
-	init: function (oAppDataSection) {
-		if (oAppDataSection)
+	/**
+	 * Initializes settings from AppData object sections.
+	 * 
+	 * @param {Object} oAppData Object contained modules settings.
+	 */
+	init: function (oAppData)
+	{
+		var oAppDataSection = oAppData[this.ServerModuleName];
+		
+		if (!_.isEmpty(oAppDataSection))
 		{
-			this.ActivatedEmail = Types.pString(oAppDataSection.ActivatedEmail); // todo: showReport(Utils.i18n('%MODULENAME%/ACCOUNT_ACTIVATED'));
-			this.AllowEmailNotifications = !!oAppDataSection.AllowEmailNotifications;
-			this.AllowFacebookAuth = !!oAppDataSection.AllowFacebookAuth;
-			this.AllowGoogleAuth = !!oAppDataSection.AllowGoogleAuth;
-			this.AllowTwitterAuth = !!oAppDataSection.AllowTwitterAuth;
-			this.AfterThreadsReceivingAction = Types.pString(oAppDataSection.AfterThreadsReceivingAction); // add, close
-			this.ClientDetailsUrl = Types.pString(oAppDataSection.ClientDetailsUrl);
-			this.ClientSiteName = Types.pString(oAppDataSection.ClientSiteName);
-			this.ForgotHash = Types.pString(oAppDataSection.ForgotHash);
-			this.IsAgent = !!oAppDataSection.IsAgent;
-			this.LoginLogoUrl = Types.pString(oAppDataSection.LoginLogoUrl);
-			this.SelectedThreadId = Types.pInt(oAppDataSection.SelectedThreadId);
-			this.signature(Types.pString(oAppDataSection.Signature));
-			this.SocialEmail = Types.pString(oAppDataSection.SocialEmail);
-			this.SocialIsLoggedIn = !!oAppDataSection.SocialIsLoggedIn;
-			this.ThreadsPerPage = oAppDataSection.ThreadsPerPage;
-			this.UserEmail = Types.pString(oAppDataSection.UserEmail);
-			this.useSignature(!!oAppDataSection.UseSignature);
+			this.ActivatedEmail = Types.pString(oAppDataSection.ActivatedEmail, this.ActivatedEmail); // todo: showReport(Utils.i18n('%MODULENAME%/ACCOUNT_ACTIVATED'));
+			this.AllowEmailNotifications = Types.pBool(oAppDataSection.AllowEmailNotifications, this.AllowEmailNotifications);
+			this.AllowFacebookAuth = Types.pBool(oAppDataSection.AllowFacebookAuth, this.AllowFacebookAuth);
+			this.AllowGoogleAuth = Types.pBool(oAppDataSection.AllowGoogleAuth, this.AllowGoogleAuth);
+			this.AllowTwitterAuth = Types.pBool(oAppDataSection.AllowTwitterAuth, this.AllowTwitterAuth);
+			this.AfterThreadsReceivingAction = Types.pString(oAppDataSection.AfterThreadsReceivingAction, this.AfterThreadsReceivingAction); // add, close
+			this.ClientDetailsUrl = Types.pString(oAppDataSection.ClientDetailsUrl, this.ClientDetailsUrl);
+			this.ClientSiteName = Types.pString(oAppDataSection.ClientSiteName, this.ClientSiteName);
+			this.ForgotHash = Types.pString(oAppDataSection.ForgotHash, this.ForgotHash);
+			this.IsAgent = Types.pBool(oAppDataSection.IsAgent, this.IsAgent);
+			this.LoginLogoUrl = Types.pString(oAppDataSection.LoginLogoUrl, this.LoginLogoUrl);
+			this.SelectedThreadId = Types.pInt(oAppDataSection.SelectedThreadId, this.SelectedThreadId);
+			this.signature(Types.pString(oAppDataSection.Signature, this.signature()));
+			this.SocialEmail = Types.pString(oAppDataSection.SocialEmail, this.SocialEmail);
+			this.SocialIsLoggedIn = Types.pBool(oAppDataSection.SocialIsLoggedIn, this.SocialIsLoggedIn);
+			this.ThreadsPerPage = Types.pPositiveInt(oAppDataSection.ThreadsPerPage, this.ThreadsPerPage);
+			this.UserEmail = Types.pString(oAppDataSection.UserEmail, this.UserEmail);
+			this.useSignature(Types.pBool(oAppDataSection.UseSignature, this.useSignature()));
 		}
 	},
 	
-	update: function (sAllowEmailNotifications, sHelpdeskSignature, sHelpdeskSignatureEnable) {
+	/**
+	 * Updates new settings values after saving on server.
+	 * 
+	 * @param {string} sAllowEmailNotifications
+	 * @param {string} sHelpdeskSignature
+	 * @param {string} sHelpdeskSignatureEnable
+	 */
+	update: function (sAllowEmailNotifications, sHelpdeskSignature, sHelpdeskSignatureEnable)
+	{
 		this.AllowEmailNotifications = sAllowEmailNotifications === '1';
 		this.signature(sHelpdeskSignature);
 		this.useSignature(sHelpdeskSignatureEnable === '1');
