@@ -8,7 +8,7 @@
 			<span class="search_block">
 				<span class="input" data-bind="css: {'focus': isSearchFocused}">
 					<span class="icon search" data-bind="click: onSearch, i18n: {'key': 'COREWEBCLIENT/ACTION_SEARCH'}"></span>
-					<input class="field" type="text" spellcheck="false" data-bind="value: search, onEnter: onSearch, hasfocus: isSearchFocused" />
+					<input class="field" type="text" spellcheck="false" data-bind="value: search, valueUpdate: 'afterkeydown', onEnter: onSearch, hasfocus: isSearchFocused" />
 				</span>
 			</span>
 			<span class="item checkstate" data-bind="command: checkCommand, checkstate: {'activeClass': 'process', 'state': checkStarted(), 'duration': 800}">
