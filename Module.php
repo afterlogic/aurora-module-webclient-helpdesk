@@ -106,7 +106,7 @@ class Module extends \Aurora\System\Module\AbstractWebclientModule
 		if (\is_string($sResult))
 		{
 			$oSettings =& \Aurora\System\Api::GetSettings();
-			$sFrameOptions = $oSettings->GetConf('XFrameOptions', '');
+			$sFrameOptions = $oSettings->GetValue('XFrameOptions', '');
 			if (0 < \strlen($sFrameOptions)) {
 				@\header('X-Frame-Options: '.$sFrameOptions);
 			}
