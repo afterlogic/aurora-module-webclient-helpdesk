@@ -382,7 +382,7 @@ CHelpdeskView.prototype.initInputosaurus = function (koAddrDom, koAddr, koLockAd
 		$(koAddrDom()).inputosaurus({
 			width: 'auto',
 			parseOnBlur: true,
-			autoCompleteSource: ModulesManager.run('ContactsWebclient', 'getSuggestionsAutocompleteComposeCallback') || function () {},
+			autoCompleteSource: ModulesManager.run('ContactsWebclient', 'getSuggestionsAutocompleteCallback', ['all']) || function () {},
 			autoCompleteDeleteItem: ModulesManager.run('ContactsWebclient', 'getSuggestionsAutocompleteDeleteHandler') || function () {},
 			autoCompleteAppendTo: $(koAddrDom()).closest('td'),
 			change: _.bind(function (ev) {
