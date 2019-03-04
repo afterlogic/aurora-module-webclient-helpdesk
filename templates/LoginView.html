@@ -110,13 +110,13 @@
 						<div class="row password" data-bind="css: {'focused': regPasswordFocus(), 'filled': regPassword().length > 0}">
 							<label for="reg_password" class="placeholder" data-bind="i18n: {'key': 'COREWEBCLIENT/LABEL_PASSWORD'}"></label>
 							<span class="value">
-								<input id="reg_password" class="input" type="password" autocomplete="off" spellcheck="false" data-bind="value: regPassword, hasfocus: regPasswordFocus, valueUpdate: 'afterkeydown'" />
+								<input id="reg_password" class="input" autocomplete="new-password" type="password" autocomplete="off" spellcheck="false" data-bind="value: regPassword, hasfocus: regPasswordFocus, valueUpdate: 'afterkeydown'" />
 							</span>
 						</div>
 						<div class="row password" data-bind="css: {'focused': regConfirmPasswordFocus(), 'filled': regConfirmPassword().length > 0}">
 							<label for="reg_confirm_password" class="placeholder" data-bind="i18n: {'key': 'COREWEBCLIENT/LABEL_CONFIRM_PASSWORD'}"></label>
 							<span class="value">
-								<input id="reg_confirm_password" class="input" type="password" autocomplete="off" spellcheck="false" data-bind="value: regConfirmPassword, hasfocus: regConfirmPasswordFocus, valueUpdate: 'afterkeydown'" />
+								<input id="reg_confirm_password" class="input" autocomplete="new-password" type="password" autocomplete="off" spellcheck="false" data-bind="value: regConfirmPassword, hasfocus: regConfirmPasswordFocus, valueUpdate: 'afterkeydown'" />
 							</span>
 						</div>
 					</div>
@@ -167,13 +167,13 @@
 						<div class="row password" data-bind="css: {'focused': changepassNewpassFocus(), 'filled': changepassNewpass().length > 0}">
 							<label for="changepass_newpass" class="placeholder" data-bind="i18n: {'key': 'COREWEBCLIENT/LABEL_NEW_PASSWORD'}"></label>
 							<span class="value">
-								<input id="changepass_newpass" class="input" type="password" spellcheck="false" autocomplete="off" data-bind="value: changepassNewpass, hasfocus: changepassNewpassFocus, valueUpdate: 'afterkeydown'" />
+								<input id="changepass_newpass" class="input" autocomplete="new-password" type="password" spellcheck="false" autocomplete="off" data-bind="value: changepassNewpass, hasfocus: changepassNewpassFocus, valueUpdate: 'afterkeydown'" />
 							</span>
 						</div>
 						<div class="row password" data-bind="css: {'focused': changepassConfirmpassFocus(), 'filled': changepassConfirmpass().length > 0}">
 							<label for="changepass_confirmpass" class="placeholder" data-bind="i18n: {'key': 'COREWEBCLIENT/LABEL_CONFIRM_PASSWORD'}"></label>
 							<span class="value">
-								<input id="changepass_confirmpass" class="input" type="password" spellcheck="false" autocomplete="off" data-bind="value: changepassConfirmpass, hasfocus: changepassConfirmpassFocus, valueUpdate: 'afterkeydown'" />
+								<input id="changepass_confirmpass" class="input" autocomplete="new-password" type="password" spellcheck="false" autocomplete="off" data-bind="value: changepassConfirmpass, hasfocus: changepassConfirmpassFocus, valueUpdate: 'afterkeydown'" />
 							</span>
 						</div>
 					</div>
