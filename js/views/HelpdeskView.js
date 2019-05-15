@@ -52,7 +52,7 @@ function CHelpdeskView()
 	this.browserTitle = ko.observable(TextUtils.i18n('%MODULENAME%/HEADING_BROWSER_TAB'));
 	
 	this.bExtApp = bExtApp;
-	this.bAgent = (App.getUserRole() === Enums.UserRole.NormalUser);
+	this.bAgent = App.isUserNormalOrTenant();
 	this.bNewTab = App.isNewTab();
 
 	var

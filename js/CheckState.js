@@ -10,7 +10,7 @@ var
 	Settings = require('modules/%ModuleName%/js/Settings.js'),
 	HeaderItemView = require('modules/%ModuleName%/js/views/HeaderItemView.js'),
 	
-	bAgent = (App.getUserRole() === Enums.UserRole.NormalUser),
+	bAgent = App.isUserNormalOrTenant(),
 	iTimer = 0
 ;
 
