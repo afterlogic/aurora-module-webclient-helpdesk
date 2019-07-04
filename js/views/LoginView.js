@@ -244,7 +244,7 @@ CLoginView.prototype.onHelpdeskLoginResponse = function (oResponse, oRequest)
 	
 	if (oResponse.Result)
 	{
-		$.cookie('AuthToken', oResponse.Result.AuthToken, { expires: 30 });
+		App.setAuthToken(oResponse.Result.AuthToken);
 		
 		UrlUtils.clearAndReloadLocation(false, true);
 	}
