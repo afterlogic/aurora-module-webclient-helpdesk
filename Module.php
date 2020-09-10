@@ -121,6 +121,7 @@ class Module extends \Aurora\System\Module\AbstractWebclientModule
 			));
 		}
 		
+		\Aurora\System\Managers\Response::HtmlOutputHeaders();
 		return $sResult;
 	}
 	
