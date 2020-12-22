@@ -8,7 +8,7 @@ namespace Aurora\Modules\HelpDeskWebclient;
 
 /**
  * @license https://afterlogic.com/products/common-licensing Afterlogic Software License
- * @copyright Copyright (c) 2019, Afterlogic Corp.
+ * @copyright Copyright (c) 2020, Afterlogic Corp.
  *
  * @package Modules
  */
@@ -121,7 +121,7 @@ class Module extends \Aurora\System\Module\AbstractWebclientModule
 			));
 		}
 		
-		\Aurora\System\Managers\Response::HtmlOutputHeaders();
+		\Aurora\Modules\CoreWebclient\Module::Decorator()->SetHtmlOutputHeaders();
 		return $sResult;
 	}
 	
